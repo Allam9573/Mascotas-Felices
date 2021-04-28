@@ -2,36 +2,46 @@ package com.veterinaria.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "idMascota")
+@Table(name = "mascotas")
 public class Mascota {
 	@Id
-	private int id;
+	private int idMascota;
 	private String nombre;
 	private String tipo;
 	private LocalDate fechaNacimiento;
+	
+	@ManyToOne
+	@JoinColumn(name="idDuenio")
+	@JsonBackReference
+	private Duenio duenio;
 	
 	public Mascota() {
 		
 	}
 
-	public Mascota(int id, String nombre, String tipo, LocalDate fechaNacimiento) {
+	public Mascota(int idMascota, String nombre, String tipo, LocalDate fechaNacimiento) {
 		super();
-		this.id = id;
+		this.idMascota = idMascota;
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdMascota() {
+		return idMascota;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdMascota(int idMascota) {
+		this.idMascota = idMascota;
 	}
 
 	public String getNombre() {

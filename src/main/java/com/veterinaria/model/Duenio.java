@@ -1,7 +1,11 @@
 package com.veterinaria.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +17,9 @@ public class Duenio {
 	private String telefono;
 	private String direccion;
 	private String corre;
+//	
+//	@OneToMany(mappedBy="Duenio", fetch=FetchType.EAGER)
+//	private List<Mascota> mascota;
 
 	public Duenio() {
 

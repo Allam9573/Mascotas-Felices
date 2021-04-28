@@ -1,5 +1,9 @@
 package com.veterinaria.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MascotaRepository {
+import com.veterinaria.model.Mascota;
+public interface MascotaRepository extends JpaRepository<Mascota, Integer> {
+	
+	public Mascota findById(int id);
 
 }
